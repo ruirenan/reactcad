@@ -1,5 +1,5 @@
 .modal {
-    height: 400px;
+    height: 300px;
     width: 400px;
     background:#f3f3f3;
     border: 1px solid grey;
@@ -7,4 +7,27 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
+    position: fixed;
+    top: 70px;
+}
+
+.input{
+    padding: 5px;
+}
+
+span {
+    margin-top: 10px;
+}
+
+.button {
+    margin-top: 10px;
+    height: 30px;
+    background: #7159c1;
+    color: white;
+    border: none;
+
+}
+
+.button:hover {
+    background: #8568e6;
 }
