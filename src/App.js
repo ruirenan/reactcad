@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter } from "react-router-dom";
 
-import{ BrowserRouter} from 'react-router-dom';
+import Routes from "./routes";
 
-import Routes from './routes';
+import { UserProvider } from "./components/Context/UserContext";
 
-import Header from './components/Header';
+import Header from "./components/Header";
 
-import "./components/Header/styles.css";
+import "./app.css";
 
 function App() {
- return (
-   <BrowserRouter>
-
-    <Header />
-     <Routes />
+  return (
+    <UserProvider>
+      <BrowserRouter>
+        <Header />
+        <Routes />
       </BrowserRouter>
-    );
+    </UserProvider>
+  );
 }
 
 export default App;

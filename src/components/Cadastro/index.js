@@ -15,54 +15,53 @@ import "./styles.css"
  //useCallback => Memoriza função
 
  function Cadastro() {
-    const valorInicial = {
-      name: "",
-      username: "",
-      email: "",
-      password: "",
-      confirm_password: "",
-    };
-  
-    const [user, setUser] = useState(valorInicial);
-    const [messageError, setMessageError] = useState(null);
-    const [responseError, setResponseError] = useState(null);
-  
-    const ref = useRef(null);
-  
-    const history = useHistory();
-  
+  const valorInicial = {
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+    confirm_password: "",
+  };
 
-    useEffect(() => {
-        console.log(ref);
-        if (ref.current) {
-          ref.current.focus();
-        }
-    
-        const input = document.getElementsByName("name")[0];
-        input.focus();
-      }, []);
-    
-      const handleChange = useCallback(
-        (e) => {
-          setUser({
-            ...user,
-            [e.target.name]: e.target.value,
-          });
-        },
-        [user]
-      );
+  const [user, setUser] = useState(valorInicial);
+  const [messageError, setMessageError] = useState(null);
+  const [responseError, setResponseError] = useState(null);
 
-      const verificaSenha = useCallback(() => {
-        if (user.confirm_password !== user.password) {
-          setMessageError("Senhas diferentes!");
-          return false;
-        } else {
-          setMessageError(null);
-          return true;
-        }
-      }, [user.confirm_password, user.password]);
+  const ref = useRef(null);
 
- const validation = useCallback(() => {
+  const history = useHistory();
+
+  useEffect(() => {
+    console.log(ref);
+    if (ref.current) {
+      ref.current.focus();
+    }
+
+    const input = document.getElementsByName("name")[0];
+    input.focus();
+  }, []);
+
+  const handleChange = useCallback(
+    (e) => {
+      setUser({
+        ...user,
+        [e.target.name]: e.target.value,
+      });
+    },
+    [user]
+  );
+
+  const verificaSenha = useCallback(() => {
+    if (user.confirm_password !== user.password) {
+      setMessageError("Senhas diferentes!");
+      return false;
+    } else {
+      setMessageError(null);
+      return true;
+    }
+  }, [user.confirm_password, user.password]);
+
+  const validation = useCallback(() => {
     if (
       !user.name ||
       !user.username ||
@@ -120,6 +119,7 @@ import "./styles.css"
 
       return (
         <div className="container">
+          <div className="alert">Alerttt</div>
           <form onSubmit={handleSubmit}>
             <h3>Cadastro de Usuário</h3>
     
@@ -190,3 +190,4 @@ import "./styles.css"
     }
     
     export default Cadastro;
+  
